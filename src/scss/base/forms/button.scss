@@ -1,0 +1,47 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.button {
+  display: inline-flex;
+  padding: toRem(8);
+  min-height: toRem(64);
+  align-items: center;
+  justify-content: center;
+  border-radius: toRem(60);
+  background-color: $bgLightColor;
+  color: $whiteColor;
+  font-size: toRem(24);
+  line-height: 1.33;
+  transition: background-color 0.3s ease;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: $bgSemiColor;
+    }
+  }
+  &--min {
+  }
+  &--white {
+    background-color: $whiteColor;
+    color: $bgLightColor;
+  }
+  &--icon {
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: toRem(16);
+      gap: toRem(16);
+      &::after {
+        content: "";
+        background: $whiteColor url("img/icons/IC_phone.svg") center no-repeat;
+        flex: 0 0 toRem(48);
+        width: toRem(48);
+        height: toRem(48);
+        border-radius: 50%;
+      }
+    }
+  }
+  &--fw {
+    width: 100%;
+  }
+}

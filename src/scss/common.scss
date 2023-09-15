@@ -1,0 +1,89 @@
+// Заголовки, общие БЄМ блоки и проче...
+.block-header {
+  display: grid;
+  @include adaptiveValue("gap", 24, 16);
+  &--center {
+    text-align: center;
+  }
+
+  &--inline {
+    grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
+    justify-content: space-between;
+    align-items: end;
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__title {
+    color: $darkColor;
+    @include adaptiveValue("font-size", 52, 32);
+    font-weight: 700;
+    line-height: 1.23;
+
+    &--big {
+      @include adaptiveValue("font-size", 64, 38);
+    }
+
+    &--white {
+      color: $whiteColor;
+    }
+
+    transform: translateY(15%);
+    opacity: 0;
+    transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
+
+    ._watcher-view & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__text {
+    transform: translateY(15%);
+    opacity: 0;
+    transition: transform 0.5s ease 0.3s, opacity 0.5s ease 0.3s;
+
+    ._watcher-view & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    p {
+      line-height: 1.55;
+    }
+  }
+}
+
+/*
+    <div class="block-header">
+      <h2 class="block-header__title"></h2>
+      <div class="block-header__text">
+        <p>
+              
+        </p>
+      </div>
+    </div>
+*/
+
+// ================
+.text {
+  line-height: 1.56;
+}
+//================
+.done {
+  display: flex;
+  column-gap: toRem(40);
+  flex-wrap: wrap;
+
+  // .done__item
+  &__item {
+    color: $bgLightColor;
+    padding-left: toRem(32);
+    row-gap: toRem(8);
+    background: url("img/icons/Ic_24-Check.svg") left no-repeat;
+
+    @include adaptiveValue("font-size", 20, 18);
+    line-height: 1.6;
+  }
+}

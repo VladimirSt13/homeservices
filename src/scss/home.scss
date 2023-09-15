@@ -1,0 +1,609 @@
+//====================================================================================================
+
+.hero {
+  position: relative;
+  display: grid;
+  padding: toRem(80) toRem(15) toRem(60) toRem(15);
+  background-color: $bgColor;
+  min-height: 100vh;
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: auto 1fr auto;
+  }
+  @media screen and (max-width: $tablet) {
+    padding-bottom: toRem(30);
+  }
+
+  // .hero__image
+  &__image-ibg {
+    position: relative;
+    @include adaptiveValue("width", 412, 200, $containerWidth, 991.98, 1);
+    border-radius: toRem(24);
+    overflow: hidden;
+    img {
+      object-position: top;
+    }
+    @media screen and (max-width: $tablet) {
+      display: none;
+    }
+    &--left {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-35deg, #131f4b 4.15%, rgba(19, 31, 75, 0) 43.25%);
+        z-index: 2;
+      }
+    }
+    &--right {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(35deg, #131f4b 4.15%, rgba(19, 31, 75, 0) 43.25%);
+        z-index: 2;
+      }
+    }
+  }
+  // .hero__body
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: toRem(48);
+    @include adaptiveValue("padding-left", 83, 15, $containerWidth, 991.98, 1);
+    @include adaptiveValue("padding-right", 83, 15, $containerWidth, 991.98, 1);
+  }
+  // .hero__content
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  // .hero__main
+  &__main {
+    display: grid;
+    gap: toRem(24);
+    &:not(:last-child) {
+      margin-bottom: toRem(48);
+    }
+  }
+  // .hero__block-header
+  &__block-header {
+    max-width: toRem(670);
+  }
+  // .hero__list
+  &__list {
+  }
+  // .hero__done-list
+  &__done-list {
+    justify-content: center;
+    align-items: center;
+  }
+  // .hero__advantages
+  &__advantages {
+  }
+
+  // .hero__decor
+  &__decor {
+  }
+  //====================================================
+  .list-hero {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: toRem(52);
+    // .list-hero__item
+    &__item {
+      position: relative;
+      color: $greyColor;
+      font-weight: 700;
+      line-height: 1.4;
+
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          position: absolute;
+          right: -27.5px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: block;
+          width: toRem(5);
+          height: toRem(5);
+          border-radius: 50%;
+          background-color: $greyColor;
+        }
+      }
+    }
+  }
+  //===============================================
+
+  .advantages-hero {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    @include adaptiveValue("gap", 64, 20);
+    row-gap: toRem(24);
+    @media screen and (max-width: em(1920)) {
+      grid-template-columns: repeat(2, auto);
+    }
+    @media screen and (max-width: $mobileSmall) {
+      grid-template-columns: auto;
+    }
+
+    // .advantages-her__item
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: toRem(16);
+      position: relative;
+      @media screen and (min-width: em(1920)) {
+        &:not(:last-child) {
+          &::after {
+            content: "";
+            position: absolute;
+
+            @include adaptiveValue("right", -32, -20);
+            top: 0;
+            height: 100%;
+            width: toRem(2);
+            background: linear-gradient(
+              0deg,
+              rgba(20, 34, 87, 0) 0%,
+              rgba(79, 102, 1083, 1) 50%,
+              rgba(20, 34, 87, 0) 100%
+            );
+          }
+        }
+      }
+    }
+    // .advantages-hero__icon
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      flex: 0 0 toRem(48);
+      height: toRem(48);
+      padding: toRem(12);
+      background-color: $bgSemiColor;
+
+      img {
+        min-width: 100%;
+      }
+    }
+    // .advantages-hero__text
+    &__text {
+      color: $whiteColor;
+      font-weight: 600;
+      line-height: 1.33;
+    }
+  }
+}
+.decor-hero {
+  // .decor-hero__item
+  &__item {
+    position: absolute;
+    bottom: 0;
+    height: toRem(45);
+    @include adaptiveValue("width", 420, 240, $containerWidth, 991.98, 1);
+    background-color: $whiteColor;
+    &:first-child {
+      left: 0;
+      border-radius: 0 toRem(8) 0 0;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-top: toRem(44) solid transparent;
+        border-left: toRem(45) solid $whiteColor;
+        border-bottom: 0px solid transparent;
+        transform: translateX(calc(100% - toRem(4)));
+      }
+    }
+    &:last-child {
+      right: 0;
+      border-radius: toRem(8) 0 0 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-top: toRem(44) solid transparent;
+        border-right: toRem(45) solid $whiteColor;
+        border-bottom: 0px solid transparent;
+        transform: translateX(calc(-100% + toRem(4)));
+      }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+//=================================================================================
+
+.about {
+  @include adaptiveValue("padding-top", 123, 40);
+  @include adaptiveValue("padding-bottom", 64, 20);
+  // .about__container
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: toRem(30);
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+  // .about__body
+  &__body {
+    @include adaptiveValue("padding-top", 100, 30, $containerWidth, 991.98, 2);
+    @media screen and (min-width: $tablet) {
+      max-width: toRem(580);
+      padding-right: toRem(20);
+    }
+  }
+  // .about__block-header
+  &__block-header {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 56, 30);
+    }
+  }
+  // .about__list
+  &__list {
+    display: grid;
+    @include adaptiveValue("gap", 32, 15);
+    grid-template-columns: repeat(2, 1fr);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 56, 30);
+    }
+    @media screen and (max-width: em(540)) {
+      grid-template-columns: auto;
+    }
+  }
+  // .about__item
+  &__item {
+    padding-left: toRem(28);
+    background: url("../img/icons/Ic_24-Check-blue.svg") 0 em(8, 20) no-repeat;
+    @include adaptiveValue("font-size", 20, 16);
+    line-height: 1.4;
+    font-weight: 700;
+    color: $bgSemiColor;
+
+    opacity: 0;
+    transform: translateY(20%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+    ._watcher-view & {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          $startDelay: 0.4;
+          $delay: $i * 0.15 + $startDelay;
+          transition-delay: #{$delay}s;
+        }
+      }
+    }
+  }
+
+  // .about__info
+  &__info {
+    padding: toRem(12) toRem(32);
+    color: $whiteColor;
+    border-radius: toRem(24);
+    background-color: $bgLightColor;
+    line-height: 1.56;
+    @media screen and (min-width: $tablet) {
+      max-width: toRem(450);
+    }
+
+    a {
+      white-space: nowrap;
+      font-size: toRem(20);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  // .about__image
+  &__image {
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+// =================================================================
+.services {
+  @include adaptiveValue("padding-top", 120, 20);
+  @include adaptiveValue("padding-bottom", 120, 40);
+  // .services__container
+  &__container {
+  }
+  // .services__block-header
+  &__block-header {
+    max-width: toRem(560);
+    margin: 0 auto;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 60, 30);
+    }
+  }
+  // .services__list
+  &__list {
+    display: grid;
+    grid-template-columns: auto;
+    @media screen and (min-width: em(670)) {
+      grid-template-columns: repeat(auto-fit, minmax(toRem(320), 1fr));
+    }
+    @media screen and (max-width: em(669.98)) {
+      row-gap: toRem(20);
+    }
+  }
+  // .services__item
+  &__item {
+  }
+}
+
+.item-service {
+  border-radius: toRem(24);
+
+  @media screen and (min-width: em(670)) {
+    @include adaptiveValue("padding", 32, 16);
+  }
+
+  @media screen and (max-width: em(669.98)) {
+    text-align: center;
+  }
+  // .item-service--blue
+  &--blue {
+    text-align: center;
+    color: $whiteColor;
+    background-color: $bgLightColor;
+    @media screen and (max-width: em(669.98)) {
+      padding: toRem(20);
+    }
+    .item-service__title {
+      color: inherit;
+    }
+  }
+  // .item-service__icon
+  &__icon {
+    display: inline-block;
+    width: toRem(64);
+    height: toRem(64);
+    // border-radius: toRem(20px);
+    // background-color: $bgColor;
+    img {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: toRem(16);
+    }
+  }
+  // .item-service__title
+  &__title {
+    @include adaptiveValue("font-size", 24, 15);
+    font-weight: 700;
+    line-height: 1.33;
+    color: $darkColor;
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
+  }
+  // .item-service__text
+  &__text {
+    line-height: 1.56;
+    &:not(:last-child) {
+      margin-bottom: toRem(32);
+    }
+  }
+  // .item-service__button
+  &__button {
+  }
+}
+
+// =================================================================
+.advantages {
+  @include adaptiveValue("padding-left", 60, 16, $containerWidth, 991.98, 2);
+  @include adaptiveValue("padding-right", 60, 16, $containerWidth, 991.98, 2);
+
+  &__body {
+    @include adaptiveValue("padding-top", 64, 32);
+    @include adaptiveValue("padding-bottom", 64, 32);
+    background-color: $bgColor;
+    @media screen and (min-width: $tablet) {
+      position: relative;
+      border-radius: toRem(24);
+      padding-left: 70px;
+      padding-right: 70px;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: toRem(45);
+        height: 73%;
+        max-height: toRem(645);
+        transform: translateY(-50%);
+        background: url("../img/advantages/decor.svg") left / auto 100% no-repeat;
+      }
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+      transform: translateY(-50%) rotate(180deg);
+      background-position: right;
+    }
+  }
+
+  // .advantages__container
+  &__container {
+  }
+  // .advantages__block-header
+  &__block-header {
+    position: relative;
+    @include adaptiveValue("padding-bottom", 120, 30);
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include adaptiveValue("bottom", 60, 15);
+      left: 0;
+      height: toRem(1);
+      width: 100%;
+      background: linear-gradient(90deg, rgba(20, 34, 87, 0) 0%, rgba(79, 102, 1083, 1) 50%, rgba(20, 34, 87, 0) 100%);
+    }
+  }
+  // .advantages__list
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    column-gap: 20px;
+    @include adaptiveValue("row-gap", 60, 24);
+
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+  // .advantages__item
+  &__item {
+    max-width: toRem(630);
+  }
+}
+
+.item-advantages {
+  display: flex;
+  @include adaptiveValue("gap", 32, 16);
+
+  // .item-advantages__icon
+  &__icon {
+    flex: 0 0 toRem(100);
+    height: toRem(100);
+    width: toRem(100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+    }
+  }
+  // .item-advantages__body
+  &__body {
+  }
+  // .item-advantages__title
+  &__title {
+    font-size: toRem(24);
+    line-height: 1.34;
+    font-weight: 700;
+    color: $whiteColor;
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
+  }
+  // .item-advantages__text
+  &__text {
+    line-height: 1.56;
+  }
+}
+
+// =================================================================
+.how {
+  @include adaptiveValue("padding-top", 155, 30);
+  @include adaptiveValue("padding-bottom", 155, 30);
+  // .how__container
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: auto;
+      gap: toRem(30);
+    }
+  }
+  // .how__image
+  &__image {
+    img {
+      transform: translateX(-10.6%);
+      max-width: 100%;
+    }
+    @media screen and (max-width: $tablet) {
+      order: 2;
+      text-align: center;
+      img {
+        transform: translateX(0);
+      }
+    }
+  }
+  // .how__content
+  &__content {
+    @media screen and (max-width: $tablet) {
+      order: 1;
+    }
+  }
+  // .how__block-header
+  &__block-header {
+    max-width: toRem(400);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 60, 30);
+    }
+  }
+  // .how__list
+  &__list {
+  }
+}
+
+.list-how {
+  display: grid;
+  @include adaptiveValue("gap", 52, 24);
+  @extend %listCounter;
+
+  // .list-how__item
+  &__item {
+    @include adaptiveValue("padding-left", 70, 40);
+    display: grid;
+    grid-template-columns: toRem(170) auto;
+    gap: toRem(36);
+
+    &::before {
+      content: "";
+      @include adaptiveValue("font-size", 52, 30);
+      font-weight: 700;
+
+      color: $greyColor;
+    }
+    @media screen and (max-width: em(520)) {
+      gap: toRem(8);
+      grid-template-columns: auto;
+    }
+  }
+  // .list-how__title
+  &__title {
+    @include adaptiveValue("font-size", 24, 18);
+    font-weight: 700;
+    line-height: 1.34;
+    color: $darkColor;
+  }
+  // .list-how__text
+  &__text {
+  }
+}
