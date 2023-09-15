@@ -69,6 +69,11 @@
 // ================
 .text {
   line-height: 1.56;
+  p {
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
+    }
+  }
 }
 //================
 .done {
