@@ -803,7 +803,7 @@
   }
   // .blog__view-more
   &__view-more {
-    justify-content: center;
+    justify-self: center;
     color: $bgLightColor;
     @include adaptiveValue("font-size", 24, 18);
     line-height: 1.33;
@@ -818,6 +818,24 @@
       width: toRem(24);
       height: toRem(24);
       background: url("../img/icons/IC_chevron-right.svg") right no-repeat;
+    }
+    transition: transform 0.3s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-bottom: 1px solid $bgLightColor;
+      }
+    }
+
+    transition: opacity 0.3s;
+    &:disabled {
+      cursor: default;
+      color: $greyColor;
+      pointer-events: none;
+      opacity: 0.5;
+      &:hover {
+        border-bottom: none;
+      }
     }
   }
 }
