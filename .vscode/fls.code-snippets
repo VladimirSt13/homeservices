@@ -18,7 +18,7 @@
     "scope": "html",
     "prefix": "spollers",
     "body": [
-      "<div data-spollers class=\"spollers\">\n\t<div class=\"spollers__item\">\n\t\t<button type=\"button\" data-spoller class=\"spollers__title\">Заголовок спойлера</button>\n\t\t<div class=\"spollers__body\">Контент спойлера</div>\n\t</div>\n</div>"
+      "<div data-spollers class=\"spollers\">\n\t<details class=\"spollers__item\">\n\t\t<summary data-spoller class=\"spollers__title\">Spoller title</summary>\n\t\t<div class=\"spollers__body\">Spoller content </div>\n\t</details>\n</div>"
     ],
     "description": "Добавляет базовый HTML код спойлеров"
   },

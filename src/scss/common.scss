@@ -52,6 +52,19 @@
     p {
       line-height: 1.55;
     }
+
+    a {
+      @include adaptiveValue("font-size", 24, 18);
+      font-weight: 700;
+      line-height: 1.33;
+      text-decoration: underline;
+      color: $bgLightColor;
+      @media (any-hover: hover) {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
 

@@ -19,6 +19,9 @@
   padding: toRem(10) toRem(15);
   border-radius: toRem(5);
   position: relative;
+  list-style: none;
+  &::marker {
+  }
   ._spoller-init & {
     cursor: pointer;
     &::before,

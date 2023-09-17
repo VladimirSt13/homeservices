@@ -1,3 +1,125 @@
 //====================================================================================================
+.footer {
+  background-color: $bgLightColor;
+  color: $whiteColor;
+  // .footer__container
+  &__container {
+  }
+  // .footer__content
+  &__content {
+    @include adaptiveValue("padding-top", 52, 20);
+    @include adaptiveValue("padding-bottom", 100, 20);
+  }
+  // .footer__subscribe
+  &__subscribe {
+    @include adaptiveValue("margin-bottom", 52, 20);
+  }
+  // .footer__body
+  &__body {
+  }
+  // .footer__info
+  &__info {
+  }
+  // .footer__logo
+  &__logo {
+  }
+  // .footer__text
+  &__text {
+  }
+  // .footer__social
+  &__social {
+  }
+  // .footer__menu
+  &__menu {
+  }
+  // .footer__copy
+  &__copy {
+    border-top: toRem(1) solid rgba(255, 255, 255, 0.3);
+    padding-top: toRem(32);
+    padding-bottom: toRem(32);
+    text-align: center;
+  }
+}
+.subscribe {
+  border-radius: toRem(24);
+  background-color: #4ac9ff;
+  padding: toRem(24);
+  display: grid;
+  grid-template-columns: auto 36%;
+  column-gap: toRem(24);
+
+  // .subscribe__body
+  &__body {
+  }
+  // .subscribe__title
+  &__title {
+    font-size: toRem(24);
+    line-height: 1.33;
+    font-weight: 700;
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
+  }
+  // .subscribe__text
+  &__text {
+  }
+  // .subscribe__form
+  &__form {
+    border-radius: toRem(60);
+    padding: toRem(12);
+    background-color: $whiteColor;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .form__error {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: red;
+    }
+  }
+  // .subscribe__input
+  &__input {
+    flex: 1 1 auto;
+    padding: toRem(12);
+    .form__error {
+      color: red;
+      &::placeholder {
+        color: red;
+      }
+    }
+  }
+  // .subscribe__button
+  &__button {
+  }
+}
+.social {
+  // .social__item
+  &__item {
+  }
+  // .social__link
+  &__link {
+  }
+}
+.menu-footer {
+  // .menu-footer__spollers
+  &__spollers {
+  }
+  // .menu-footer__block
+  &__block {
+  }
+  // .menu-footer__title
+  &__title {
+  }
+  // .menu-footer__list
+  &__list {
+  }
+  // .menu-footer__item
+  &__item {
+  }
+  // .menu-footer__link
+  &__link {
+  }
+}
 
 //====================================================================================================

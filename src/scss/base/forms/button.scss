@@ -19,6 +19,10 @@
     }
   }
   &--min {
+    font-size: toRem(18);
+    line-height: 1.33;
+    min-height: toRem(52);
+    padding: toRem(14) toRem(36);
   }
   &--white {
     background-color: $whiteColor;

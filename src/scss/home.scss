@@ -913,3 +913,164 @@
     }
   }
 }
+
+// =================================================================
+.questions {
+  @include adaptiveValue("padding-top", 190, 20);
+  @include adaptiveValue("padding-bottom", 230, 20);
+  // .questions__container
+  &__container {
+    display: grid;
+    grid-template-columns: auto 60%;
+    column-gap: toRem(20);
+    row-gap: toRem(30);
+    align-items: start;
+    @media screen and (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+  // .questions__block-header
+  &__block-header {
+  }
+  // .questions__spollers
+  &__spollers {
+  }
+}
+
+.spollers-questions {
+  display: grid;
+  gap: toRem(12);
+
+  // .spollers-questions__item
+  &__item {
+    flex-direction: column;
+    transition: all 0.3s;
+    border-radius: toRem(12);
+
+    &[open] {
+      background-color: $bgLightGreyColor;
+    }
+  }
+  // .spollers-questions__title
+  &__title {
+    position: relative;
+    padding: toRem(24) toRem(76) toRem(24) toRem(32);
+    @media screen and (max-width: $mobileSmall) {
+      padding: toRem(12) toRem(38) toRem(12) toRem(16);
+    }
+    line-height: 1.2;
+
+    list-style: none;
+    @include adaptiveValue("font-size", 24, 18);
+    font-weight: 700;
+    font-family: inherit;
+    &::marker {
+      display: none;
+    }
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 50px;
+      @media screen and (max-width: $mobileSmall) {
+        right: 20px;
+      }
+      top: 50%;
+      background-color: #000;
+      height: 2px;
+      width: 10px;
+      transition: transform 0.5s ease 0s;
+    }
+    &::before {
+      transform: translate(-75%, -50%) rotate(40deg);
+    }
+    &::after {
+      transform: translate(0, -50%) rotate(-40deg);
+    }
+    .spollers-questions__item[open] & {
+      &::before {
+        transform: translateX(-75%) rotate(-40deg);
+      }
+      &::after {
+        transform: rotate(40deg);
+      }
+    }
+  }
+  // .spollers-questions__body
+  &__body {
+    font-size: toRem(16);
+    line-height: 1.5;
+    padding: 0 toRem(32) toRem(24);
+    @media screen and (max-width: $mobileSmall) {
+      padding: 0 toRem(16) toRem(12);
+    }
+  }
+}
+
+// =================================================================
+.talk {
+  position: relative;
+  background-color: $bgColor;
+  // .talk__container
+  &__container {
+    @media screen and (min-width: $tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      @include adaptiveValue("gap", 100, 24);
+    }
+  }
+  // .talk__content
+  &__content {
+    position: relative;
+    @include adaptiveValue("padding-top", 164, 20);
+    @include adaptiveValue("padding-bottom", 104, 20);
+
+    &::before {
+      content: "";
+      background: url("img/talk/decor.svg") 0 0 / 83% no-repeat;
+      width: 100%;
+      aspect-ratio: 581/44;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  // .talk__block-header
+  &__block-header {
+    &:not(:last-child) {
+      margin-bottom: toRem(24);
+    }
+  }
+  // .talk__done-list
+  &__done-list {
+    &:not(:last-child) {
+      margin-bottom: toRem(36);
+    }
+  }
+  // .talk__btn
+  &__btn {
+  }
+  // .talk__image
+  &__image {
+    img {
+      max-width: 100%;
+    }
+    @media screen and (min-width: $tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      @include adaptiveValue("gap", 100, 24);
+      img {
+        grid-column: 2/3;
+        justify-self: end;
+      }
+    }
+  }
+}
+
+// =================================================================
