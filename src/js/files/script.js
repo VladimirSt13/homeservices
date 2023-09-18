@@ -103,9 +103,9 @@ class Accordion {
     this.el = el;
     this.allEls = allEls;
     // Store the <summary> element
-    this.summary = el.querySelector(".spollers-questions__title");
+    this.summary = el.querySelector("summary");
     // Store the <div class="content"> element
-    this.content = el.querySelector(".spollers-questions__body");
+    this.content = el.querySelector(".spollers-body");
 
     // Store the animation object (so we can cancel it if needed)
     this.animation = null;
@@ -129,11 +129,11 @@ class Accordion {
     } else if (this.isExpanding || this.el.open) {
       this.shrink();
     }
-    this.allEls.forEach((el) => {
-      if (el !== this.el) {
-        el.open = false;
-      }
-    });
+    // this.allEls.forEach((el) => {
+    //   if (el !== this.el) {
+    //     el.open = false;
+    //   }
+    // });
   }
 
   shrink() {
@@ -225,5 +225,11 @@ class Accordion {
 const pageSpollers = document.querySelectorAll(".spollers-questions__item");
 
 pageSpollers.forEach((el, index, allEls) => {
+  new Accordion(el, allEls);
+});
+
+const menuFooterBlocks = document.querySelectorAll(".menu-footer__block");
+
+menuFooterBlocks.forEach((el, index, allEls) => {
   new Accordion(el, allEls);
 });

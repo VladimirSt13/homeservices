@@ -1024,6 +1024,7 @@
   // .talk__content
   &__content {
     position: relative;
+    z-index: 2;
     @include adaptiveValue("padding-top", 164, 20);
     @include adaptiveValue("padding-bottom", 104, 20);
 
